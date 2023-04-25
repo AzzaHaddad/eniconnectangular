@@ -6,6 +6,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './authentication/auth.service';
+import { ToastrModule } from 'ngx-toastr';
+
 
 
 
@@ -56,6 +58,7 @@ import { AdminLayoutComponent } from './containers/admin-layout/admin-layout.com
 import { ResponsableListComponent } from './components/responsable/responsable-list/responsable-list.component';
 import { ResponsableLayoutComponent } from './containers/responsable-layout/responsable-layout.component';
 import { EtudiantLayoutComponent } from './containers/etudiant-layout/etudiant-layout.component';
+import { AddResponsableComponent } from './components/responsable/add-responsable/add-responsable.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -68,7 +71,7 @@ const APP_CONTAINERS = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, ...APP_CONTAINERS, AdminLayoutComponent, ResponsableListComponent, ResponsableLayoutComponent, EtudiantLayoutComponent],
+  declarations: [AppComponent, ...APP_CONTAINERS, AdminLayoutComponent, ResponsableListComponent, ResponsableLayoutComponent, EtudiantLayoutComponent, AddResponsableComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -98,6 +101,7 @@ const APP_CONTAINERS = [
     CardModule,
     HttpClientModule,
     FormsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     {

@@ -15,6 +15,7 @@ import { RegisterComponent } from './views/pages/register/register.component';
 
 import { AuthGuard } from './authentication/auth-guard.service';
 import { ResponsableListComponent } from './components/responsable/responsable-list/responsable-list.component';
+import { AddResponsableComponent } from './components/responsable/add-responsable/add-responsable.component';
 
 const routes: Routes = [
   {
@@ -24,7 +25,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    canActivate: [AuthGuard], // Add AuthGuard to protect all child routes
+    //canActivate: [AuthGuard], // Add AuthGuard to protect all child routes
     component: DefaultLayoutComponent,
     data: {
       title: 'Home'
@@ -120,6 +121,10 @@ const routes: Routes = [
       {
         path: 'responsable-list',
         component: ResponsableListComponent
+      },
+      {
+        path: 'add-responsable',
+        component: AddResponsableComponent
       },
     ]
   },

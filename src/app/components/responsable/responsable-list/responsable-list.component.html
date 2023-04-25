@@ -1,39 +1,31 @@
 <c-card class="mb-4">
       <c-card-header>
-        <strong>Angular Table</strong> <small>Basic example</small>
+        <strong>Listes des responsables </strong>
       </c-card-header>
       <c-card-body>
-        <p class="text-medium-emphasis small">
-          Using the most basic table CoreUI, here&#39;s how <code>cTable</code>-based
-          tables look in CoreUI.
-        </p>
-          <table cTable>
+          <table class="table table-striped">
             <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Class</th>
-              <th scope="col">Heading</th>
-              <th scope="col">Heading</th>
-            </tr>
+              <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Adresse</th>
+                <th scope="col">Téléphone</th>
+                <th scope="col">Email</th>
+                <th scope="col">Actions</th>
+              </tr>
             </thead>
             <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colSpan="2">Larry the Bird</td>
-              <td>@twitter</td>
-            </tr>
+              <tr *ngFor="let responsable of responsables; let i = index">
+                <td><input cFormControl [(ngModel)]="responsable.nom" style="width: 150px;" /></td>
+                <td><input cFormControl  [(ngModel)]="responsable.prenom" style="width: 150px;" /></td>
+                <td><input cFormControl [(ngModel)]="responsable.adresse" style="width: 150px;" /></td>
+                <td><input cFormControl [(ngModel)]="responsable.telephone" style="width: 150px;" /></td>
+                <td><input cFormControl [(ngModel)]="responsable.email"  style="width: 150px;" disabled/></td>
+                <td>
+                  <button type="button" class="btn btn-danger" (click)="deleteResponsable(i)">Supprimer</button>
+                  <button type="button" class="btn btn-info" (click)="updateResponsable(i)">Modify</button>
+                </td>
+              </tr>
             </tbody>
           </table>
       </c-card-body>

@@ -19,12 +19,16 @@ export class ResponsableService {
 
   // Add a responsable
   addResponsable(responsable: Responsable): Observable<number> {
-    return this.http.post<number>('/responsable/add', responsable);
+    return this.http.post<number>(`${API_ENDPOINT}/responsable/add`, responsable);
   }
 
   // Delete a responsable by email
   deleteResponsable(email: string): Observable<void> {
-    return this.http.delete<void>(`/responsable/delete?email=${email}`);
+    return this.http.delete<void>(`${API_ENDPOINT}/responsable/delete?email=${email}`);
+  }
+
+  updateResponsable(responsable: Responsable): Observable<Responsable> {
+    return this.http.put<Responsable>(`${API_ENDPOINT}/responsable/update/${responsable.email}`, responsable);
   }
 
   

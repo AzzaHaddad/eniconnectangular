@@ -1,0 +1,98 @@
+<c-card class="mb-4">
+    <c-card-header>
+      <strong>Ajouter Responsable </strong>
+    </c-card-header>
+    <c-card-body>
+
+<form cForm (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label cLabel for="nom">Nom</label>
+      <input cFormControl
+             id="nom"
+             [(ngModel)]="responsable.nom"
+             name="nom"
+             required
+             type="text"
+      />
+    </div>
+    <div class="mb-3">
+      <label cLabel for="prenom">Prenom</label>
+      <input cFormControl
+             id="prenom"
+             [(ngModel)]="responsable.prenom"
+             name="prenom"
+             required
+             type="text"
+      />
+    </div>
+    <div class="mb-3">
+      <label cLabel for="adresse">Adresse</label>
+      <input cFormControl
+             id="adresse"
+             [(ngModel)]="responsable.adresse"
+             name="adresse"
+             required
+             type="text"
+      />
+    </div>
+    <div class="mb-3">
+      <label cLabel for="ville">Ville</label>
+      <input cFormControl
+             id="ville"
+             [(ngModel)]="responsable.ville"
+             name="ville"
+             required
+             type="text"
+      />
+    </div>
+    <div class="mb-3">
+      <label cLabel for="codePostal">Code Postal</label>
+      <input cFormControl
+             id="codePostal"
+             [(ngModel)]="responsable.codePostal"
+             name="codePostal"
+             required
+             type="text"
+      />
+    </div>
+    <div class="mb-3">
+      <label cLabel for="telephone">Telephone</label>
+      <input cFormControl
+             id="telephone"
+             [(ngModel)]="responsable.telephone"
+             name="telephone"
+             required
+             type="text"
+      />
+    </div>
+    <div class="mb-3">
+      <label cLabel for="email">Email address</label>
+      <input cFormControl
+             id="email"
+             [(ngModel)]="responsable.email"
+             name="email"
+             required
+             type="email"
+             required 
+             
+      />
+    </div>
+    <div class="mb-3">
+      <label cLabel for="password">Password</label>
+      <div class="input-group">
+
+      <input cFormControl
+             id="password"
+             [(ngModel)]="responsable.password"
+             name="password"
+             required
+             type="text"
+             required 
+      />
+<button cButton type="button" class="btn btn-primary" (click)="generatePassword()">Generate Password</button>
+    </div>
+    </div>
+    <button cButton type="submit">Submit</button>
+  </form>
+        </c-card-body>
+    </c-card>

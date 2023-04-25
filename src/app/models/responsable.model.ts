@@ -1,5 +1,5 @@
 export interface Responsable {
-    id: number;
+    id?: number;
     nom: string;
     prenom: string;
     adresse: string;

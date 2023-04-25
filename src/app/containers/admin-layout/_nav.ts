@@ -17,7 +17,7 @@ export const navItems: INavData[] = [
   },
   {
     name: 'Ajouter Responsable',
-    url: '/admin',
+    url: '/admin/add-responsable',
     iconComponent: { name: 'cil-pencil' }
   },
 
