@@ -1,11 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { DefaultLayoutComponent } from './containers';
+import { DefaultLayoutComponent } from './containers/default-layout';
+import { AdminLayoutComponent } from './containers/admin-layout/admin-layout.component';
+import { ResponsableLayoutComponent } from './containers/responsable-layout/responsable-layout.component';
+import { EtudiantLayoutComponent } from './containers/etudiant-layout/etudiant-layout.component';
+
+
+
 import { Page404Component } from './views/pages/page404/page404.component';
 import { Page500Component } from './views/pages/page500/page500.component';
 import { LoginComponent } from './views/pages/login/login.component';
 import { RegisterComponent } from './views/pages/register/register.component';
+
+import { AuthGuard } from './authentication/auth-guard.service';
+import { ResponsableListComponent } from './components/responsable/responsable-list/responsable-list.component';
 
 const routes: Routes = [
   {
@@ -15,6 +24,7 @@ const routes: Routes = [
   },
   {
     path: '',
+    canActivate: [AuthGuard], // Add AuthGuard to protect all child routes
     component: DefaultLayoutComponent,
     data: {
       title: 'Home'
@@ -98,6 +108,33 @@ const routes: Routes = [
     component: RegisterComponent,
     data: {
       title: 'Register Page'
+    }
+  },
+  {
+    path: 'admin',
+    component: AdminLayoutComponent,
+    data: {
+      title: 'Admin Page'
+    },
+    children: [
+      {
+        path: 'responsable-list',
+        component: ResponsableListComponent
+      },
+    ]
+  },
+  {
+    path: 'responsable',
+    component: ResponsableLayoutComponent,
+    data: {
+      title: 'responsable Page'
+    }
+  },
+  {
+    path: 'etudiant',
+    component: ResponsableLayoutComponent,
+    data: {
+      title: 'Etudiant Page'
     }
   },
   {path: '**', redirectTo: 'dashboard'}

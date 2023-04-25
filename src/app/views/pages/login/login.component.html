@@ -5,14 +5,29 @@
         <c-card-group>
           <c-card class="p-4">
             <c-card-body>
+              
               <form cForm>
-                <h1>Login</h1>
+                <h1>Login As:</h1>
+                <c-input-group class="mb-3">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="userType" id="adminRadio" value="admin" [(ngModel)]="userType">
+                    <label class="form-check-label" for="adminRadio">Admin</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="userType" id="responsableRadio" value="responsable" [(ngModel)]="userType">
+                    <label class="form-check-label" for="responsableRadio">Responsable</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="userType" id="etudiantRadio" value="etudiant" [(ngModel)]="userType">
+                    <label class="form-check-label" for="etudiantRadio">Etudiant</label>
+                  </div>
+                </c-input-group>
                 <p class="text-medium-emphasis">Sign In to your account</p>
                 <c-input-group class="mb-3">
                   <span cInputGroupText>
                     <svg cIcon name="cilUser"></svg>
                   </span>
-                  <input autoComplete="username" cFormControl placeholder="Username" />
+                  <input autoComplete="email" cFormControl placeholder="email" #emailInput/>
                 </c-input-group>
                 <c-input-group class="mb-4">
                   <span cInputGroupText>
@@ -23,11 +38,12 @@
                     cFormControl
                     placeholder="Password"
                     type="password"
+                    #passwordInput
                   />
                 </c-input-group>
                 <c-row>
                   <c-col xs="6">
-                    <button cButton class="px-4" color="primary">
+                    <button cButton class="px-4" color="primary" (click)="login(emailInput.value, passwordInput.value)">
                       Login
                     </button>
                   </c-col>
@@ -40,6 +56,7 @@
               </form>
             </c-card-body>
           </c-card>
+          
           <c-card [ngStyle]="{'width.%': 44}" class="text-white bg-primary py-5">
             <c-card-body class="text-center">
               <div>
