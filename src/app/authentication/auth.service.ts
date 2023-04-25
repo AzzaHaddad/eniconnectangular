@@ -67,4 +67,7 @@ export class AuthService {
     getUserType(): string | null {
       return sessionStorage.getItem('userType');
     }
+    getCin(): string | null {
+      return sessionStorage.getItem('cin');
+    }
 }

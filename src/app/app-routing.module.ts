@@ -16,6 +16,10 @@ import { RegisterComponent } from './views/pages/register/register.component';
 import { AuthGuard } from './authentication/auth-guard.service';
 import { ResponsableListComponent } from './components/responsable/responsable-list/responsable-list.component';
 import { AddResponsableComponent } from './components/responsable/add-responsable/add-responsable.component';
+import { DemandeListComponent } from './components/demande/demande-list/demande-list.component';
+import { AddDemandeComponent } from './components/demande/add-demande/add-demande.component';
+
+
 
 const routes: Routes = [
   {
@@ -137,10 +141,20 @@ const routes: Routes = [
   },
   {
     path: 'etudiant',
-    component: ResponsableLayoutComponent,
+    component: EtudiantLayoutComponent,
     data: {
       title: 'Etudiant Page'
-    }
+    },
+    children: [
+      {
+        path: 'demande-list',
+        component: DemandeListComponent
+      },
+      {
+        path: 'add-demande',
+        component: AddDemandeComponent
+      },
+    ]
   },
   {path: '**', redirectTo: 'dashboard'}
 ];

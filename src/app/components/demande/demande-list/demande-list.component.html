@@ -1,0 +1,97 @@
+
+<c-card class="mb-4" *ngIf="demandeAcceptee?.length">
+    <c-card-header>
+      <strong>Demandes Acceptés</strong>
+    </c-card-header>
+    <c-card-body>
+<c-row>
+<c-col *ngFor="let demande of demandeAcceptee " [lg]="3">
+    <!-- Display each demand in a card here -->  
+  <c-card cBorder="success" textColor="success"  class="mb-3" >
+    <c-card-body>
+      <h5 cCardTitle>{{demande.objet}}</h5>
+      <p cCardText>
+        {{demande.contenu}}
+          </p>
+          <button cButton color="light" class="shadow" (click)="deleteDemande(demande)">Supprimer</button>
+
+      
+
+    </c-card-body>
+</c-card>
+</c-col>
+</c-row>
+</c-card-body>
+</c-card>
+
+<c-card class="mb-4" *ngIf="demandeRefusee?.length">
+    <c-card-header>
+      <strong>Demandes Refusées</strong>
+    </c-card-header>
+    <c-card-body>
+<c-row>
+    <c-col *ngFor="let demande of demandeRefusee " [lg]="3">
+        <!-- Display each demand in a card here -->  
+      <c-card cBorder="danger" textColor="danger"  class="mb-3" >
+        <c-card-body>
+          <h5 cCardTitle>{{demande.objet}}</h5>
+          <p cCardText>
+            {{demande.contenu}}
+              </p>
+              <button cButton color="light" class="shadow" (click)="deleteDemande(demande)">Supprimer</button>
+
+        </c-card-body>
+    </c-card>
+    </c-col>
+    </c-row>
+</c-card-body>
+</c-card>
+
+<c-card class="mb-4" *ngIf="demandeEnCours?.length">
+    <c-card-header>
+      <strong>Demandes En cours</strong>
+    </c-card-header>
+    <c-card-body>
+<c-row>
+    <c-col *ngFor="let demande of demandeEnCours " [lg]="3">
+        <!-- Display each demand in a card here -->  
+      <c-card cBorder="primary" textColor="primary"  class="mb-3" >
+        <c-card-body>
+          <h5 cCardTitle>{{demande.objet}}</h5>
+          <p cCardText>
+            {{demande.contenu}}
+              </p>
+            <button cButton color="light"  class="shadow">Modifier</button> 
+        </c-card-body>
+    </c-card>
+    </c-col>
+    </c-row>
+</c-card-body>
+</c-card>
+
+<c-card class="mb-4" *ngIf="demandeEnAttente?.length">
+    <c-card-header>
+      <strong>Demandes En Attente</strong>
+    </c-card-header>
+    <c-card-body>
+<c-row>
+    <c-col *ngFor="let demande of demandeEnAttente " [lg]="3">
+        <!-- Display each demand in a card here -->  
+      <c-card cBorder="warning" textColor="warning"  class="mb-3" >
+        <c-card-body>
+          <h5 cCardTitle>{{demande.objet}}</h5>
+          <p cCardText>
+            {{demande.contenu}}
+              </p>
+          <button cButton color="light" class="shadow">Modifier</button>
+          <button cButton color="light" class="shadow" (click)="deleteDemande(demande)">Supprimer</button>
+        </c-card-body>
+    </c-card>
+    </c-col>
+    </c-row>
+</c-card-body>
+</c-card>
+
+
+
+   

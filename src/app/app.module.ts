@@ -59,6 +59,8 @@ import { ResponsableListComponent } from './components/responsable/responsable-l
 import { ResponsableLayoutComponent } from './containers/responsable-layout/responsable-layout.component';
 import { EtudiantLayoutComponent } from './containers/etudiant-layout/etudiant-layout.component';
 import { AddResponsableComponent } from './components/responsable/add-responsable/add-responsable.component';
+import { DemandeListComponent } from './components/demande/demande-list/demande-list.component';
+import { AddDemandeComponent } from './components/demande/add-demande/add-demande.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -71,7 +73,7 @@ const APP_CONTAINERS = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, ...APP_CONTAINERS, AdminLayoutComponent, ResponsableListComponent, ResponsableLayoutComponent, EtudiantLayoutComponent, AddResponsableComponent],
+  declarations: [AppComponent, ...APP_CONTAINERS, AdminLayoutComponent, ResponsableListComponent, ResponsableLayoutComponent, EtudiantLayoutComponent, AddResponsableComponent, DemandeListComponent, AddDemandeComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

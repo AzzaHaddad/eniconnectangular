@@ -2,22 +2,22 @@ import { INavData } from '@coreui/angular';
 
 export const navItems: INavData[] = [
   {
-    name: 'Admin',
-    url: '/admin',
+    name: 'Etudiant',
+    url: '/etudiant',
     iconComponent: { name: 'cil-speedometer' },
   },
   {
     title: true,
-    name: 'Responsable'
+    name: 'Demandes'
   },
   {
-    name: 'Listes Des Responsables',
-    url: '/admin/responsable-list',
+    name: 'Listes Des Demandes',
+    url: '/etudiant/demande-list',
     iconComponent: { name: 'cil-notes' }
   },
   {
-    name: 'Ajouter Responsable',
-    url: '/admin',
+    name: 'Créer une demande',
+    url: '/etudiant/add-demande',
     iconComponent: { name: 'cil-pencil' }
   },
 
