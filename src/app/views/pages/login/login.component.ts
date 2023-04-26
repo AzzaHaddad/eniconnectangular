@@ -20,7 +20,7 @@ export class LoginComponent {
     let authFunction;
     switch(this.userType) {
       case 'admin':
-        (this.authService.responsableLogin(email, password).subscribe(
+        (this.authService.adminLogin(email, password).subscribe(
           data => {
             this.router.navigate(['/admin'])
           },/*

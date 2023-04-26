@@ -18,6 +18,7 @@ import { ResponsableListComponent } from './components/responsable/responsable-l
 import { AddResponsableComponent } from './components/responsable/add-responsable/add-responsable.component';
 import { DemandeListComponent } from './components/demande/demande-list/demande-list.component';
 import { AddDemandeComponent } from './components/demande/add-demande/add-demande.component';
+import { EmploisComponent } from './components/etudiant/emplois/emplois.component';
 
 
 
@@ -154,6 +155,11 @@ const routes: Routes = [
         path: 'add-demande',
         component: AddDemandeComponent
       },
+      {
+        path: 'emplois',
+        component: EmploisComponent
+      },
+    
     ]
   },
   {path: '**', redirectTo: 'dashboard'}

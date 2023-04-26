@@ -61,6 +61,7 @@ import { EtudiantLayoutComponent } from './containers/etudiant-layout/etudiant-l
 import { AddResponsableComponent } from './components/responsable/add-responsable/add-responsable.component';
 import { DemandeListComponent } from './components/demande/demande-list/demande-list.component';
 import { AddDemandeComponent } from './components/demande/add-demande/add-demande.component';
+import { EmploisComponent } from './components/etudiant/emplois/emplois.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -73,7 +74,7 @@ const APP_CONTAINERS = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, ...APP_CONTAINERS, AdminLayoutComponent, ResponsableListComponent, ResponsableLayoutComponent, EtudiantLayoutComponent, AddResponsableComponent, DemandeListComponent, AddDemandeComponent],
+  declarations: [AppComponent, ...APP_CONTAINERS, AdminLayoutComponent, ResponsableListComponent, ResponsableLayoutComponent, EtudiantLayoutComponent, AddResponsableComponent, DemandeListComponent, AddDemandeComponent, EmploisComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

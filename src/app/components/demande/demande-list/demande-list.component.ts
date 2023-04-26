@@ -24,96 +24,7 @@ export class DemandeListComponent implements OnInit {
 
 
   constructor(private authService: AuthService, private demandeService: DemandeService, private router: Router,private toastr: ToastrService) { 
-    this.demandes = [
-      {
-        id: 1,
-        objet: 'Demande de congé',
-        contenu: 'Je voudrais prendre des congés du 10 au 15 mai',
-        etat: EtatDemande.EN_ATTENTE,
-        dateDemande: new Date('2022-04-25'),
-        reponse: null,
-        dateReponse: null
-      },
-      {
-        id: 2,
-        objet: 'Demande de formation',
-        contenu: 'Je voudrais suivre une formation sur Angular',
-        etat: EtatDemande.ACCEPTEE,
-        dateDemande: new Date('2022-04-20'),
-        reponse: 'Votre demande de formation a été acceptée',
-        dateReponse: new Date('2022-04-21')
-      },
-      {
-        id: 3,
-        objet: 'Demande de matériel',
-        contenu: 'Je voudrais un nouvel ordinateur portable',
-        etat: EtatDemande.REFUSEE,
-        dateDemande: new Date('2022-04-18'),
-        reponse: 'Votre demande de matériel a été refusée',
-        dateReponse: new Date('2022-04-19')
-      },
-      {
-        id: 4,
-        objet: 'Demande de congé',
-        contenu: 'Je voudrais prendre des congés du 5 au 10 juin',
-        etat: EtatDemande.EN_COURS,
-        dateDemande: new Date('2022-04-15'),
-        reponse: null,
-        dateReponse: null
-      },
-      {
-        id: 3,
-        objet: 'Demande de matériel',
-        contenu: 'Je voudrais un nouvel ordinateur portable',
-        etat: EtatDemande.REFUSEE,
-        dateDemande: new Date('2022-04-18'),
-        reponse: 'Votre demande de matériel a été refusée',
-        dateReponse: new Date('2022-04-19')
-      },
-      {
-        id: 3,
-        objet: 'Demande de matériel',
-        contenu: 'Je voudrais un nouvel ordinateur portable',
-        etat: EtatDemande.REFUSEE,
-        dateDemande: new Date('2022-04-18'),
-        reponse: 'Votre demande de matériel a été refusée',
-        dateReponse: new Date('2022-04-19')
-      },
-      {
-        id: 3,
-        objet: 'Demande de matériel',
-        contenu: 'Je voudrais un nouvel ordinateur portable',
-        etat: EtatDemande.REFUSEE,
-        dateDemande: new Date('2022-04-18'),
-        reponse: 'Votre demande de matériel a été refusée',
-        dateReponse: new Date('2022-04-19')
-      },{
-        id: 3,
-        objet: 'Demande de matériel',
-        contenu: 'Je voudrais un nouvel ordinateur portable',
-        etat: EtatDemande.REFUSEE,
-        dateDemande: new Date('2022-04-18'),
-        reponse: 'Votre demande de matériel a été refusée',
-        dateReponse: new Date('2022-04-19')
-      },{
-        id: 3,
-        objet: 'Demande de matériel',
-        contenu: 'Je voudrais un nouvel ordinateur portable',
-        etat: EtatDemande.REFUSEE,
-        dateDemande: new Date('2022-04-18'),
-        reponse: 'Votre demande de matériel a été refusée',
-        dateReponse: new Date('2022-04-19')
-      },
-      {
-        id: 3,
-        objet: 'Demande de matériel',
-        contenu: 'Je voudrais un nouvel ordinateur portable',
-        etat: EtatDemande.REFUSEE,
-        dateDemande: new Date('2022-04-18'),
-        reponse: 'Votre demande de matériel a été refusée',
-        dateReponse: new Date('2022-04-19')
-      },  
-    ]
+   
   }
   
   ngOnInit(): void {
@@ -122,6 +33,8 @@ export class DemandeListComponent implements OnInit {
       this.demandeService.getAllDemandesByEtudiant(Number(etudiantCin)).subscribe(
         (demandes: Demande[]) => {
           this.demandes = demandes;
+          this.updateDemandeArrays();
+
         },
         (error: any) => {
           console.log(error);
@@ -131,17 +44,19 @@ export class DemandeListComponent implements OnInit {
       this.demandeService.getAllDemandes().subscribe(
         (demandes: Demande[]) => {
           this.demandes = demandes;
+          this.updateDemandeArrays();
+
         },
         (error: any) => {
           console.log(error);
         }
       );
     }
-    this.updateDemandeArrays();
+
 
   }
   deleteDemande(demande: Demande): void {
-    this.demandeService.deleteDemande(demande.id).subscribe(
+    this.demandeService.deleteDemande(demande.id ?? 0).subscribe(
       () => {
         const index = this.demandes.findIndex(d => d.id === demande.id);
         if (index !== -1) {
@@ -160,10 +75,13 @@ export class DemandeListComponent implements OnInit {
   }
 
   updateDemandeArrays(): void {
+    if(this.demandes != null){
+      console.log(this.demandes);
     this.demandeEnAttente = this.demandes.filter(demande => demande.etat === 'EN_ATTENTE');
     this.demandeEnCours = this.demandes.filter(demande => demande.etat === 'EN_COURS');
     this.demandeAcceptee = this.demandes.filter(demande => demande.etat === 'ACCEPTEE');
     this.demandeRefusee = this.demandes.filter(demande => demande.etat === 'REFUSEE');
+    }
   }
   
 }

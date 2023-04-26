@@ -27,10 +27,10 @@ export class AuthService {
         }));
     }
 
-    adminLogin(email: string, password: string) {
-      const url = `${API_ENDPOINT}/responsable/signin`;
+    adminLogin(username: string, password: string) {
+      const url = `${API_ENDPOINT}/admin/signin`;
       console.log(url);
-      return this.httpClient.post<any>(url, { email, password })
+      return this.httpClient.post<any>(url, { username, password })
         .pipe(map(response => {
           if (response) {
             sessionStorage.setItem('isLoggedIn', 'true');

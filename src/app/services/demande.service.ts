@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpParams  } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Demande } from '../models/demande';
 import { API_ENDPOINT } from '../config';
+import { AuthService} from '../authentication/auth.service'
 
 
 
@@ -11,10 +12,10 @@ import { API_ENDPOINT } from '../config';
   providedIn: 'root'
 })
 export class DemandeService {
-  private baseUrl = `${API_ENDPOINT}/demande`;
+  private baseUrl = `${API_ENDPOINT}/demandes`;
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService :AuthService) { }
 
 
   getAllDemandes(): Observable<Demande[]> {
@@ -29,7 +30,12 @@ export class DemandeService {
   }
 
   createDemande(objet: string, contenu: string): Observable<number> {
-    return this.http.post<number>(`${this.baseUrl}/createDemande?objet=${objet}&contenu=${contenu}`, null);
+    const params = new HttpParams()
+      .set('objet', objet)
+      .set('contenu', contenu)
+      .set('cin', this.authService.getCin()!);
+  
+    return this.http.post<number>(`${this.baseUrl}/createDemande`, null, { params });
   }
 
   updateDemande(id: number, demande: Demande): Observable<Demande> {

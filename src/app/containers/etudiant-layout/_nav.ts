@@ -20,5 +20,14 @@ export const navItems: INavData[] = [
     url: '/etudiant/add-demande',
     iconComponent: { name: 'cil-pencil' }
   },
+  {
+    title: true,
+    name: 'Scolarité'
+  },
+  {
+    name: 'Emplois du temps',
+    url: '/etudiant/emplois',
+    iconComponent: { name: 'cil-pencil' }
+  },
 
 ];

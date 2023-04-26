@@ -1,5 +1,5 @@
 export interface Demande {
-    id: number;
+    id?: number;
     objet: string;
     contenu: string;
     etat: EtatDemande;

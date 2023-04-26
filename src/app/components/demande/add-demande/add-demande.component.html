@@ -1,1 +1,32 @@
-<p>add-demande works!</p>
+<c-card class="mb-4">
+    <c-card-header>
+      <strong>Ajouter Demande </strong>
+    </c-card-header>
+    <c-card-body>
+        <form cForm (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label cLabel for="objet">Objet</label>
+                <input cFormControl
+                       id="objet"
+                       [(ngModel)]="demande.objet"
+                       name="objet"
+                       required
+                       type="text"
+                />
+            </div>
+            <div class="mb-3">
+                <label cLabel for="contenu">Contenu</label>
+                <textarea cFormControl
+                          id="contenu"
+                          [(ngModel)]="demande.contenu"
+                          name="contenu"
+                          required
+                ></textarea>
+            </div>
+
+
+
+            <button cButton type="submit">Ajouter</button>
+        </form>
+    </c-card-body>
+</c-card>
